@@ -3,6 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import axios from "axios";
+import { Routes, Route, Link } from 'react-router-dom';
+
+const Home = () => <div>Home Page</div>;
+const About = () => <div>About Page</div>;
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,6 +20,11 @@ function App() {
 
   return (
     <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+      
       <div>
         <h1>Frontend-Backend Connection</h1>
         <p>{message}</p>
