@@ -12,11 +12,13 @@ function App() {
 
   // Don't wrap BrowserRouter inside another Router here.
   return (
+    <>
+    <Navbar />
     <BrowserRouter> {/* This should be the only Router wrapping your app */}
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter></>
   );
 }
 
