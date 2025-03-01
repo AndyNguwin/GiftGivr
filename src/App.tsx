@@ -1,13 +1,9 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import axios from "axios";
-import { Routes, Route, Link } from 'react-router-dom';
-import { Button } from '@mui/material';
-
-const Home = () => <div>Home Page</div>;
-const About = () => <div>About Page</div>;
+import { useState, useEffect } from 'react';
+import './App.css';
+import axios from 'axios';
+import { Routes, Route, BrowserRouter } from 'react-router-dom'; // Router import
+import Home from './pages/Home';
+import AccountCreation from './pages/AccountCreation';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,39 +11,13 @@ function App() {
 
   // Don't wrap BrowserRouter inside another Router here.
   return (
-    <>
+    <BrowserRouter> {/* This should be the only Router wrapping your app */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/CreateAccount" element={<AccountCreation />} />
       </Routes>
-
-      <div>
-        <Button variant="text">Yes!</Button>
-        <h1>Frontend-Backend Connection</h1>
-        <p>{message}</p>
-      </div>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
 
 export default App;
