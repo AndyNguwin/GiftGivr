@@ -6,6 +6,8 @@ import axios from "axios";
 import { Routes, Route, Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 
+import Navbar from './components/Navbar';
+
 const Home = () => <div>Home Page</div>;
 const About = () => <div>About Page</div>;
 
@@ -21,6 +23,8 @@ function App() {
 
   return (
     <>
+
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
