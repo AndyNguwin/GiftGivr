@@ -3,8 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import axios from "axios";
-import { Routes, Route, Link } from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Button } from '@mui/material';
+
+import AccountCreation from './pages/AccountCreation';
+
 
 const Home = () => <div>Home Page</div>;
 const About = () => <div>About Page</div>;
@@ -21,10 +24,18 @@ function App() {
 
   return (
     <>
+      <div>
+      <BrowserRouter>
+
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" index element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/AccountCreation" element={<AccountCreation />} />
       </Routes>
+
+      </BrowserRouter>
+      </div>
 
       <div>
         <Button variant="text">Yes!</Button>
