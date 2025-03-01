@@ -3,39 +3,23 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import axios from "axios";
-import {BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { Button } from '@mui/material';
-
-import AccountCreation from './pages/AccountCreation';
-
 
 const Home = () => <div>Home Page</div>;
 const About = () => <div>About Page</div>;
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   const [message, setMessage] = useState("Loading...");
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/api")
-      .then((response) => setMessage(response.data.message))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
+  // Don't wrap BrowserRouter inside another Router here.
   return (
     <>
-      <div>
-      <BrowserRouter>
-
       <Routes>
-        <Route path="/" index element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/AccountCreation" element={<AccountCreation />} />
       </Routes>
-
-      </BrowserRouter>
-      </div>
 
       <div>
         <Button variant="text">Yes!</Button>
@@ -66,4 +50,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
