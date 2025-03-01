@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import axios from "axios";
 import { Routes, Route, Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 const Home = () => <div>Home Page</div>;
 const About = () => <div>About Page</div>;
@@ -24,8 +25,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      
+
       <div>
+        <Button variant="text">Yes!</Button>
         <h1>Frontend-Backend Connection</h1>
         <p>{message}</p>
       </div>
