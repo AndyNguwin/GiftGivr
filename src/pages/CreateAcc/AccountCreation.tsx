@@ -131,7 +131,7 @@ const AccountCreation = () => {
       )}
 
 
-    </div>
+    </div> </div>
   )
 }
 
