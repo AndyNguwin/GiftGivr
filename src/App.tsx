@@ -3,7 +3,6 @@ import './App.css';
 import axios from 'axios';
 import { Routes, Route, BrowserRouter } from 'react-router-dom'; // Router import
 import Home from './pages/Home';
-import Interests from './pages/Interests';
 import About from './pages/About';
 
 import Navbar from './components/Navbar';
