@@ -1,8 +1,9 @@
 import React from 'react';
 import './Navbar.css';
+import { Button } from '@mui/material';import { purple } from '@mui/material/colors';
+;
 
 const Navbar: React.FC = () => {
-    console.log('Navbar component rendered');
   return (
     <nav className="navbar">
       <a href="/" className="site-title">GiftGivr</a>
@@ -11,7 +12,15 @@ const Navbar: React.FC = () => {
           <a href="/about">About</a>
         </li>
         <li>
-          <a href="/login">Log In</a>
+        <Button 
+            component="a" 
+            href="/login" 
+            variant="contained" 
+            sx={{ backgroundColor: 'purple', '&:hover': { backgroundColor: 'darkpurple' } }} // Custom styles
+            className="login-button"
+          >
+            Log In
+          </Button>
         </li>
       </ul>
     </nav>

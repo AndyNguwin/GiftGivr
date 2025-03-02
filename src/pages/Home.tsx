@@ -11,7 +11,11 @@ const Home: React.FC = () => {
          Connect with your loved ones to see what they want for the Holidays and keep track of their birthday!
         Never forget a birthday or gift idea again!
       </p>
-      <Button className="home-button" variant='contained'>Join Today!</Button>
+      <Button 
+        className="home-button" 
+        variant='contained'
+        sx={{ backgroundColor: 'purple', '&:hover': { backgroundColor: 'darkpurple' } }} >
+        Join Today!</Button>
       <img className="home-img" src="src/assets/pexels-pixabay-17796.jpg" alt="Presents"/> 
     </div>
   );
