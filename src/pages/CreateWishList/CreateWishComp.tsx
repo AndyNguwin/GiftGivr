@@ -45,7 +45,8 @@ function WishList(){
 
     }
     return (
-
+        <div>
+        <div className="box">
         <div className="wishlist">
             <h1 style={{marginRight:'630px'}}>Create Your Perfect Wishlist</h1>
             <div>
@@ -80,8 +81,9 @@ function WishList(){
                     
                 )}
             </ol>
-
-            <button className="continue-button"
+        </div>
+        </div>
+        <button className="continue-button"
                     onClick={MovetoNext}>
                 Continue
             </button>
@@ -90,9 +92,8 @@ function WishList(){
             <p className={`message ${message.includes('created') ? 'success' : 'error'}`}>
             {message}
             </p>
-      )}
+        )}
         </div>
-
         
 
     );

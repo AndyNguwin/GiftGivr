@@ -1,5 +1,13 @@
 
-
+.box{
+    background: rgb(224, 167, 231);
+    border-radius: 15px;
+    border: none;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    height: 100%; /* Allow the container to grow with content */
+    padding: 10px;
+}
 .wishlist{
     text-align: center;
     margin-top: 50px;
@@ -8,6 +16,7 @@
 h1{
     font-size: 3rem;
 }
+
 button{
     font-size: 1.7rem;
     font-weight: bold;
@@ -19,7 +28,37 @@ button{
     transition: background-color 0.5 ease;
 }
 
+.hover-button {
+    position: relative;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .popup {
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .hover-button:hover .popup {
+    visibility: visible;
+    opacity: 1;
+  }
+
 .add-button{
+    margin-right: 10px;
     background-color: hsl(125, 47%, 54%);
 }
 
@@ -33,7 +72,9 @@ input[type="text"]{
     border: 2px solid hsl(0, 0%, 80%, 50%);
     border-radius: 5px;
     color: rgba(0, 0, 0, 0.486);
+    width: 500px;
 }
+
 
 ol{
     padding: 0;
@@ -82,3 +123,4 @@ li{
 .continue-button:hover{
     background-color: #1481ca;
 }
+
