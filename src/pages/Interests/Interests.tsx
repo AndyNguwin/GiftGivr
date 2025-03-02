@@ -1,7 +1,9 @@
 // WishList.tsx
 //
 // import { Routes, Route, Link } from 'react-router-dom';
-import { TextField, Button } from '@mui/material';
+
+import { TextField, Button , Paper} from '@mui/material';
+
 import './Interests.css';
 
 import { useState } from 'react';
@@ -10,8 +12,9 @@ import { useState } from 'react';
 function Interests() {
     // The Select your interests thing
     const [interests, setInterests] = useState<string[]>([]);
-    const availableTags = ['Art', 'Sports', 'Music', 'Technology', 'Travel', 'Food', 'Nature', 'Two Baddies', 'One Porsche', 'Badminton', 'Pokemon', 'Lady Gaga', 'Monday Tuesday Wednesday Thursday Friday'];
-
+    const [availableTags, setAvailableTags] = useState<string[]>([
+        'Art', 'Sports', 'Music', 'Technology', 'Travel', 'Food', 'Nature', 'Two Baddies', 'One Porsche'
+    ]);
     // The add your own tag thing
     const [userInput, setUserInput] = useState('');
 
@@ -30,21 +33,36 @@ function Interests() {
     // Function for adding user input as a tag
     const handleUserInput = () => {
         if (userInput.trim() && !interests.includes(userInput)) {
+            setAvailableTags([...availableTags, userInput.trim()]);
             setInterests([...interests, userInput.trim()]);
         }
         setUserInput('');
     }
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            handleUserInput();
+        }
+    };
+
     return (
         <>  
-            <div className='container h1'>
+            <Paper elevation={10} className='container h1'>
                 <div className='logo'>
                     What are some of your interests?
                 </div>
 
-                <div id='input'> <TextField label='Enter interest' value={userInput} onKeyDown={handleUserInput}>
-                    Hey
-                </TextField></div>
+                <div id='input'> 
+                    <TextField 
+                        label='Enter interest' 
+                        value={userInput} 
+                        onChange={(e) => setUserInput(e.target.value)} 
+                        onKeyDown={handleKeyDown}>
+                    </TextField>
+                    <Button onClick={handleUserInput} style={{ marginLeft: '10px' }}>
+                        Add
+                    </Button>
+                </div>
 
                 <div className='tags-container'>
                 {availableTags.map((tag) => (
@@ -67,12 +85,14 @@ function Interests() {
                 </ul>
                 
             </div>
-
-                <div id='next'>
+                <a href="/CreateWishlist">
+                <div id='next'
+                >
                     Next
                 </div>
+                </a>
                 
-            </div>
+            </Paper>
         </>
     )
 }

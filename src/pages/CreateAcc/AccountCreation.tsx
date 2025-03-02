@@ -1,9 +1,13 @@
 // CreateAccount.tsx
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 import './AccountCreation.css';  // Import the CSS file
 import axios from 'axios';
 
-const CreateAccount: React.FC = () => {
+
+const AccountCreation = () => {
+
   const [username, setUsername] = useState('');
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -11,7 +15,7 @@ const CreateAccount: React.FC = () => {
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
   const [message, setMessage] = useState('');
-
+  const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -20,6 +24,8 @@ const CreateAccount: React.FC = () => {
       setMessage('Please fill in all fields');
       return;
     }
+
+    navigate("/Interests");
     console.log(`Username: ${username}`);
     console.log(`Password: ${password}`);
     console.log(`email: ${email}`);
@@ -46,29 +52,21 @@ const CreateAccount: React.FC = () => {
       setMessage(`Error creating account: ${error.response ? error.response.data.message : error.message}`);
     })
   };
-
   return (
-    
-    <div className="container">
 
-      <div className="cornerH">
-        <h1>GiftGivr</h1>
+
+    <div className='container'>
+      <div className='header'>
+        <div className='text'>Sign Up</div>
+        <div className='underline'></div>
       </div>
-      <div className="square"></div>
-
-      <h2>Create an Account</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email" style={{ display: 'block', marginBottom: '5px' }}>
-            Email
-          </label>
-          <input
-            id="email"
+      <div className='inputs'>
+        <div className='input' >
+          <input id="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-          />
+            placeholder='youremail@something.com'/>
         </div>
         <div>
           <label htmlFor="firstname" style={{ display: 'block', marginBottom: '5px' }}>
@@ -103,20 +101,14 @@ const CreateAccount: React.FC = () => {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="Enter your username"
-          />
+            placeholder='YourUsername'/>
         </div>
-        <div>
-          <label htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>
-            Password
-          </label>
-          <input
-            id="password"
+        <div className='input'>
+          <input id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-          />
+            placeholder='apples123'/>
         </div>
         <div>
           <label htmlFor="birthday" style={{ display: 'block', marginBottom: '5px' }}>
@@ -129,16 +121,18 @@ const CreateAccount: React.FC = () => {
             onChange={(e) => setBirthday(e.target.value)}
             placeholder="Enter your birthday"
           />
-        </div>
-        <button type="submit">Create Account</button>
-      </form>
-      {message && (
+      </div>
+      <div className="submit-container">
+        <button className="submit" onClick={handleSubmit}> Sign up</button>
+      </div>. {message && (
         <p className={`message ${message.includes('created') ? 'success' : 'error'}`}>
           {message}
         </p>
       )}
-    </div>
-  );
-};
 
-export default CreateAccount;
+
+    </div>
+  )
+}
+
+export default AccountCreation
