@@ -1,0 +1,33 @@
+.react-calendar {
+    border: 1px solid black; /* Add a border to the calendar */
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .react-calendar__tile {
+    background: white; /* Change the background color of the tiles */
+    color: black; /* Change the text color of the tiles */
+  }
+  
+  .react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus {
+    background: #e6e6e6; /* Change the background color of the tiles on hover/focus */
+  }
+  
+  .react-calendar__tile--now {
+    background: #ffeb3b; /* Change the background color of the current day */
+    color: black; /* Change the text color of the current day */
+  }
+  
+  .react-calendar__tile--active {
+    background: #3f51b5; /* Change the background color of the selected day */
+    color: white; /* Change the text color of the selected day */
+  }
+  
+  .react-calendar__navigation button {
+    color: black; /* Change the text color of the navigation buttons */
+  }
+  
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    background: #e6e6e6; /* Change the background color of the navigation buttons on hover/focus */
+  }

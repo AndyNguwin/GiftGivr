@@ -11,6 +11,8 @@ import LogIn from './pages/LogIn';
 
 import CreateAccount from './pages/CreateAcc/AccountCreation';
 import CreateWishList from './pages/CreateWishList/CreateWishList';
+import MyProfile from './pages/MyProfile';
+import LoggedInHome from './pages/LoggedInHome';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -28,6 +30,8 @@ function App() {
         <Route path="/LogIn" element={<LogIn />} />
         <Route path="/CreateAccount" element={<CreateAccount />} />
         <Route path="/CreateWishlist" element={<CreateWishList />} />
+        <Route path="/MyProfile" element={<MyProfile />} />
+        <Route path="/LoggedInHome" element={<LoggedInHome />} />
       </Routes>
     </BrowserRouter></>
   );

@@ -12,6 +12,9 @@ const Navbar: React.FC = () => {
           <a href="/about">About</a>
         </li>
         <li>
+          <a href="/MyProfile">My Profile</a>
+        </li>
+        <li>
         <Button 
             component="a" 
             href="/LogIn" 
