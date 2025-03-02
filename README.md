@@ -6,4 +6,12 @@ npm install
 npm run dev
 ```
 
-this is my branch
+
+# Setting up the Backend
+
+## Prerequisites
+    - Please download PostgreSQL
+    - 
+
+## Create and Populate Database
+
