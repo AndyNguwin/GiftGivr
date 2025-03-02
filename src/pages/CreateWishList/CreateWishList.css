@@ -20,12 +20,38 @@ button{
 }
 
 .add-button{
+    margin-left: 10px;
     background-color: hsl(125, 47%, 54%);
 }
 
 .add-button:hover{
     background-color: hsl(125, 47%, 44%);
 }
+
+.hover-button{
+    margin-left: 10px;
+    background-color: hsl(234, 74%, 45%);
+}
+
+.hover-button:hover{
+    background-color: hsl(234, 78%, 40%);
+}
+
+.hover-popup {
+    display: none;
+    position: absolute;
+    margin-left: 5%;
+    
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .hover-button:hover .hover-popup {
+    display: block;
+  }
 
 input[type="text"]{
     font-size: 1.6rem;
