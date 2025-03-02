@@ -1,6 +1,7 @@
 // WishList.tsx
 //
 // import { Routes, Route, Link } from 'react-router-dom';
+
 import { TextField, Button } from '@mui/material';
 import './Interests.css';
 
@@ -67,10 +68,12 @@ function Interests() {
                 </ul>
                 
             </div>
-
-                <div id='next'>
+                <a href="/CreateWishlist">
+                <div id='next'
+                >
                     Next
                 </div>
+                </a>
                 
             </div>
         </>
