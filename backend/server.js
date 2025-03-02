@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
-const { addUser, userLogin, getWishlist } = require('./service');
+const { addUser, userLogin, getWishlist, addWish } = require('./service');
 
 const app = express();
 
@@ -98,6 +98,18 @@ app.get("/api/wishlist", async (req, res) => {
     } catch (error) {
         console.error("Error fetching wishlist:", error);
         res.status(500).json({ error: "An error occurred while fetching the wishlist" });
+    }
+})
+
+app.post("/api/addWish", async (req, res) => {
+    try {
+        console.log(req.body);
+        const {user_id, item_name} = req.body;
+        const result = await addWish(user_id, item_name);
+        console.log("Result:", result);
+        res.status(201).json({message: "success add"});
+    }catch (error) {
+        res.status(500).json({ error: error.message });
     }
 })
 

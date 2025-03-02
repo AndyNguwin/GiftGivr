@@ -42,6 +42,15 @@ function WishList(){
         {
             setWishes(() => [...wishes, newWish]);
             console.log(wishes);
+            console.log(newWish);
+            axios.post("http://localhost:5000/api/addWish", {
+                user_id: user_id,
+                item_name: newWish
+            }).then(response => {
+                console.log(response.data);
+            }).catch(error => {
+                console.error("Error adding to wishlist:", error);
+            });
             setNewWish("");
         }
 

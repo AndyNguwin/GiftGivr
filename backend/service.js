@@ -53,6 +53,7 @@ const addWish = async (userId, wishItem) => {
         `;
         const values = [userId, wishItem];
         await pool.query(query, values);
+        return { success: true, message: "Wish item added successfully" };
     } catch (error) {
         console.error('Error adding wish:', error);
         return { error: "An error occurred adding wish" };
