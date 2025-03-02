@@ -40,7 +40,7 @@ const AccountCreation = () => {
       birthday : birthday
     }).then(() => {
       console.log(`Account created for ${username}`);
-      setMessage(`Account created for ${username}`);
+      alert(`Account created for ${username}`);
       setFirstname("");
       setLastname("");
       setUsername('');
@@ -53,8 +53,6 @@ const AccountCreation = () => {
     })
   };
   return (
-
-
     <div className='container'>
       <div className='header'>
         <div className='text'>Sign Up</div>
