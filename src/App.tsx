@@ -8,6 +8,9 @@ import About from './pages/About';
 import Navbar from './components/Navbar';
 import LogIn from './pages/LogIn';
 
+import CreateAccount from './pages/CreateAcc/AccountCreation';
+import CreateWishList from './pages/CreateWishList/CreateWishList';
+
 function App() {
   const [count, setCount] = useState(0);
   const [message, setMessage] = useState("Loading...");
@@ -21,6 +24,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/LogIn" element={<LogIn />} />
+        <Route path="/CreateAccount" element={<CreateAccount />} />
+        <Route path="/CreateWishlist" element={<CreateWishList />} />
       </Routes>
     </BrowserRouter></>
   );
