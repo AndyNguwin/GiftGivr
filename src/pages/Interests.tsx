@@ -1,7 +1,7 @@
 // WishList.tsx
 //
 // import { Routes, Route, Link } from 'react-router-dom';
-// import { Button } from '@mui/material';
+import { Button } from '@mui/material';
 import './Interests.css';
 
 import { useState } from 'react';
@@ -11,6 +11,7 @@ function Interests() {
     // The Select your interests thing
     const [interests, setInterests] = useState<string[]>([]);
     const availableTags = ['Art', 'Sports', 'Music', 'Technology', 'Travel', 'Food', 'Nature', 'Two Baddies', 'One Porsche', 'Badminton', 'Pokemon', 'Lady Gaga', 'Monday Tuesday Wednesday Thursday Friday'];
+    const [newtag, setNewtag] = useState('');
 
     // Function for when you click on each tag
     const handleTagClick = (tag: string) => {
@@ -30,6 +31,10 @@ function Interests() {
                 <div className='logo'>
                     What are some of your interests?
                 </div>
+
+                <div id='input'> <Button>
+                    Hey
+                </Button></div>
 
                 <div className='tags-container'>
                 {availableTags.map((tag) => (
