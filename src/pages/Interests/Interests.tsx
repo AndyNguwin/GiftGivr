@@ -2,7 +2,8 @@
 //
 // import { Routes, Route, Link } from 'react-router-dom';
 
-import { TextField, Button } from '@mui/material';
+import { TextField, Button , Paper} from '@mui/material';
+
 import './Interests.css';
 
 import { useState } from 'react';
@@ -46,7 +47,7 @@ function Interests() {
 
     return (
         <>  
-            <div className='container h1'>
+            <Paper elevation={10} className='container h1'>
                 <div className='logo'>
                     What are some of your interests?
                 </div>
@@ -91,7 +92,7 @@ function Interests() {
                 </div>
                 </a>
                 
-            </div>
+            </Paper>
         </>
     )
 }
