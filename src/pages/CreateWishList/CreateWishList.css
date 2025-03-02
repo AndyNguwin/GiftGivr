@@ -1,0 +1,84 @@
+
+
+.wishlist{
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1{
+    font-size: 3rem;
+}
+button{
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5 ease;
+}
+
+.add-button{
+    background-color: hsl(125, 47%, 54%);
+}
+
+.add-button:hover{
+    background-color: hsl(125, 47%, 44%);
+}
+
+input[type="text"]{
+    font-size: 1.6rem;
+    padding:  10px;
+    border: 2px solid hsl(0, 0%, 80%, 50%);
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.486);
+}
+
+ol{
+    padding: 0;
+    list-style-type: none;
+}
+
+li{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 15px;
+    background-color: hsl(0, 0%, 97%);
+    margin-bottom: 10px;
+    border: 3px solid black;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.delete-button{
+    background-color: #e74c3c; /* Optional: Style for the delete button */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+.delete-button:hover{
+    background-color: #dd3623;
+}
+
+.continue-button{
+    background-color: #3498db; /* Blue color for the continue button */
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: auto; /* Push the button to the bottom of the page */
+    align-self: center; /* Center the button horizontally */
+}
+
+.continue-button:hover{
+    background-color: #1481ca;
+}
