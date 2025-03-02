@@ -33,11 +33,6 @@ const CreateAccount: React.FC = () => {
     
     <div className="container">
 
-      <div className="cornerH">
-        <h1>GiftGivr</h1>
-      </div>
-      <div className="square"></div>
-
       <h2>Create an Account</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -57,7 +52,7 @@ const CreateAccount: React.FC = () => {
             Username
           </label>
           <input
-            id="username"
+            id="test"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
