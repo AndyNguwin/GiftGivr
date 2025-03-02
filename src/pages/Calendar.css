@@ -1,33 +1,47 @@
 .react-calendar {
-    border: 1px solid black; /* Add a border to the calendar */
+    border: 2px solid black; 
     font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
   }
   
   .react-calendar__tile {
-    background: white; /* Change the background color of the tiles */
-    color: black; /* Change the text color of the tiles */
+    background: white; 
+    color: black; 
+    font-size: 14px; 
   }
   
   .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus {
-    background: #e6e6e6; /* Change the background color of the tiles on hover/focus */
+    background: #944ad1; 
   }
   
   .react-calendar__tile--now {
-    background: #ffeb3b; /* Change the background color of the current day */
-    color: black; /* Change the text color of the current day */
+    background: #f688c2;
+    color: black; 
   }
   
   .react-calendar__tile--active {
-    background: #3f51b5; /* Change the background color of the selected day */
-    color: white; /* Change the text color of the selected day */
+    background: #8f41d0; 
+    color: white; 
   }
   
   .react-calendar__navigation button {
-    color: black; /* Change the text color of the navigation buttons */
+    color: black; 
+    background: #f688c2;
+    font-size: 16px; 
   }
   
   .react-calendar__navigation button:enabled:hover,
   .react-calendar__navigation button:enabled:focus {
-    background: #e6e6e6; /* Change the background color of the navigation buttons on hover/focus */
+    background: #9a5ace; 
+  }
+
+  .react-calendar__navigation {
+    margin-bottom: 10px; 
+  }
+  
+  .react-calendar__month-view__weekdays {
+    margin-top: 10px; 
+    border-bottom: 2px solid black;
+    font-size: 16px; 
   }

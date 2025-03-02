@@ -11,7 +11,10 @@ function LoggedInHome() {
 
   return (
     <div>
-      <Calendar onChange={onChange} value={value} />
+      <Calendar onChange={onChange} 
+      value={value}
+      showNeighboringMonth={false} // Hide the days from the previous and next months
+        />
     </div>
   );
 }
