@@ -11,7 +11,8 @@ const Navbar: React.FC = () => {
 
     if (storedIsLoggedIn) {
       console.log('Logging out...');
-      localStorage.setItem('isLoggedIn', 'false');
+      // localStorage.setItem('isLoggedIn', 'false');
+      localStorage.clear();
       navigate('/');
     } else {
       console.log('Logging in...');
