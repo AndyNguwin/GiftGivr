@@ -39,10 +39,14 @@ const LogIn = () => {
       }).then((response) => {
         console.log('Form submitted:', { username, password });
         console.log(response.data.userId);
-        // Store a flag in localStorage when logged in
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('user_id', response.data.userId);
-        navigate('/');
+        if (response.data.userId){
+          // Store a flag in localStorage when logged in
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('user_id', response.data.userId);
+          navigate('/');
+        } else {
+          alert("Incorrect credentials!");
+        }
       }).catch((error) => {
         console.error('Login failed', error);
       });
