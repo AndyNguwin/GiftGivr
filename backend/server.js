@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
+const { addUser } = require('./service');
 
 const app = express();
 
@@ -24,15 +25,32 @@ app.get("/api", (req, res) => {
 });
 
 // Fetch all users
-app.get("/users", async (req, res) => {
+// app.get("/api/users", async (req, res) => {
+//     try {
+//       const result = await pool.query("SELECT id, first_name, last_name, email FROM users");
+//       res.json(result.rows);
+//     } catch (error) {
+//       console.error(error.message);
+//       res.status(500).send("Server Error");
+//     }
+//   });
+
+// Create new account
+app.post("/api/newaccount", async (req, res) => {
     try {
-      const result = await pool.query("SELECT id, first_name, last_name, email FROM users");
-      res.json(result.rows);
+        console.log(req.body);
+        const {firstName, lastName, email, password, birthday} = req.body;
+
+        if (!firstName || !lastName || !email || !password || !birthday) {
+            return res.status(400).json({ error: "All fields are required" });
+        }
+
+        const newUser = await addUser(firstName, lastName, email, password, birthday);
+        res.status(201).json(newUser);
     } catch (error) {
-      console.error(error.message);
-      res.status(500).send("Server Error");
+        res.status(500).json({ error: "Internal Server Error" });
     }
-  });
+});
 
 // Start the server
 const PORT = process.env.PORT || 5000;
