@@ -51,7 +51,7 @@ const LogIn = () => {
 
   return (
     <Container maxWidth="xs">
-      <Paper elevation={10} sx={{ marginTop: 8, padding: 2 }}>
+      <Paper elevation={10} sx={{ marginTop: 8, marginBottom: 4, padding: 2 }}>
         <Avatar sx={{ mx: "auto", bgcolor: "secondary.main", textAlign: "center", mb: 1 }}>
           <LockOutlinedIcon />
         </Avatar>
@@ -88,6 +88,13 @@ const LogIn = () => {
           </Button>
         </Box>
       </Paper>
+
+      <Typography component='h1' variant='h6'>
+        Don't have an account yet?
+      </Typography>
+      <Button variant="contained" sx={{ mt: 1, mb: 1 }} onClick={() => {navigate('/CreateAccount');}}>
+        Sign Up
+      </Button>
     </Container>
   );
 }

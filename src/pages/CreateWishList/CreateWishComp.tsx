@@ -1,18 +1,8 @@
 import React, {useEffect, useState} from "react";
 import './CreateWishList.css'
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function WishList(){
-    const navigate = useNavigate();
-    useEffect(() => {
-        // Check login status on component mount
-        const loginStatus = localStorage.getItem('isLoggedIn');
-        console.log(loginStatus);
-        if (loginStatus != 'true') {
-            navigate('/LogIn');  // Redirect to login if not logged in
-        }
-    }, [navigate]);
-
     const user_id = localStorage.getItem('user_id');
     const [wishes, setWishes] = useState([]);
 
