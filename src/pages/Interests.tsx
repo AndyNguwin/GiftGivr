@@ -1,7 +1,7 @@
 // WishList.tsx
 //
 // import { Routes, Route, Link } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import './Interests.css';
 
 import { useState } from 'react';
@@ -11,7 +11,9 @@ function Interests() {
     // The Select your interests thing
     const [interests, setInterests] = useState<string[]>([]);
     const availableTags = ['Art', 'Sports', 'Music', 'Technology', 'Travel', 'Food', 'Nature', 'Two Baddies', 'One Porsche', 'Badminton', 'Pokemon', 'Lady Gaga', 'Monday Tuesday Wednesday Thursday Friday'];
-    const [newtag, setNewtag] = useState('');
+
+    // The add your own tag thing
+    const [userInput, setUserInput] = useState('');
 
     // Function for when you click on each tag
     const handleTagClick = (tag: string) => {
@@ -25,6 +27,14 @@ function Interests() {
         });
     };
 
+    // Function for adding user input as a tag
+    const handleUserInput = () => {
+        if (userInput.trim() && !interests.includes(userInput)) {
+            setInterests([...interests, userInput.trim()]);
+        }
+        setUserInput('');
+    }
+
     return (
         <>  
             <div className='container h1'>
@@ -32,9 +42,9 @@ function Interests() {
                     What are some of your interests?
                 </div>
 
-                <div id='input'> <Button>
+                <div id='input'> <TextField label='Enter interest' value={userInput} onKeyDown={handleUserInput}>
                     Hey
-                </Button></div>
+                </TextField></div>
 
                 <div className='tags-container'>
                 {availableTags.map((tag) => (
@@ -55,6 +65,7 @@ function Interests() {
                         <li key={index}>{interest}</li>
                     ))}
                 </ul>
+                
             </div>
 
                 <div id='next'>
