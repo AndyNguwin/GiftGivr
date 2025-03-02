@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Avatar, Box, Button, Checkbox, Container, FormControlLabel, Paper, TextField, Typography } from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 const LogIn = () => {
+  const navigate = useNavigate()
   const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
@@ -14,23 +17,35 @@ const LogIn = () => {
 
     let valid = true;
 
-    if (username.length < 6) {
-      setUsernameError('Username must be at least 6 characters long.');
-      valid = false;
-    } else {
-      setUsernameError('');
-    }
+    // if (username.length < 6) {
+    //   setUsernameError('Username must be at least 6 characters long.');
+    //   valid = false;
+    // } else {
+    //   setUsernameError('');
+    // }
 
-    if (password.length < 8) {
-      setPasswordError('Password must be at least 8 characters long.');
-      valid = false;
-    } else {
-      setPasswordError('');
-    }
+    // if (password.length < 8) {
+    //   setPasswordError('Password must be at least 8 characters long.');
+    //   valid = false;
+    // } else {
+    //   setPasswordError('');
+    // }
 
     if (valid) {
       // Proceed with form submission
-      console.log('Form submitted:', { username, password });
+      axios.post('http://localhost:5000/api/login', {
+        username : username,
+        password : password
+      }).then((response) => {
+        console.log('Form submitted:', { username, password });
+        console.log(response.data.userId);
+        // Store a flag in localStorage when logged in
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('user_id', response.data.userId);
+        navigate('/');
+      }).catch((error) => {
+        console.error('Login failed', error);
+      });
     }
   };
 

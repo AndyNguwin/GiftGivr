@@ -1,9 +1,21 @@
 // Home.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
-import { Button } from '@mui/material';;
+import { Button } from '@mui/material';import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Check login status on component mount
+        const loginStatus = localStorage.getItem('isLoggedIn');
+        console.log(loginStatus);
+        if (loginStatus != 'true') {
+          navigate('/LogIn');  // Redirect to login if not logged in
+        }
+      }, [navigate]);
+      
   return (
     <div className="home-container">
       <div className="home-content">

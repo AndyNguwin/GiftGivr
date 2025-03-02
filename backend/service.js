@@ -17,11 +17,6 @@ const addUser = async (firstName, lastName, username, email, password, birthday)
 
     const values = [firstName, lastName, username, email, password, birthday];
     const result = await pool.query(query, values);
-    // if (result.length > 0){
-    //     return true;
-    // } else {
-    //     return false;
-    // } 
     return result.rows[0].id; // Return the newly created user id
   } catch (error) {
     console.error("Error adding user:", error);
@@ -29,4 +24,25 @@ const addUser = async (firstName, lastName, username, email, password, birthday)
   }
 };
 
-module.exports = { addUser };
+const userLogin = async (username, password) => {
+    try {
+        const query = `
+            SELECT id FROM users WHERE username = $1 AND password = $2;
+        `;
+        const values = [username, password];
+        const result = await pool.query(query, values);
+        // Check if a user was found
+        if (result.rows.length === 0) {
+            // No matching user found
+            return { error: "Invalid username or password" };
+        } else {
+            // Return the user id (or other user data as needed)
+            return { userId: result.rows[0].id };
+        }
+    } catch (error) {
+        console.error('Error logging in:', error);
+        return { error: "An error occurred during login" };
+    }
+}
+
+module.exports = { addUser, userLogin };
