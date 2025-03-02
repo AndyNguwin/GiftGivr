@@ -2,9 +2,9 @@
 
 \c giftgivr;
 
-INSERT INTO users (first_name, last_name, email, password, birthday)
+INSERT INTO users (first_name, last_name, username, email, password, birthday)
 VALUES 
-('Jane', 'Doe', 'jane.doe@example.com', 'password123', '1990-01-01')
+('Jane', 'Doe', 'jane.doe', 'jane.doe@example.com', 'password123', '1990-01-01')
 ON CONFLICT (email) DO NOTHING;
 
 INSERT INTO wishlists (user_id, item_name)
@@ -14,9 +14,9 @@ VALUES
 (1, 'Keyboard')
 ON CONFLICT (user_id, item_name) DO NOTHING;
 
-INSERT INTO users (first_name, last_name, email, password, birthday)
+INSERT INTO users (first_name, last_name, username, email, password, birthday)
 VALUES 
-('John', 'Doe', 'john.doe@example.com', 'password123', '1992-02-02')
+('John', 'Doe', 'john.doe', 'john.doe@example.com', 'password123', '1992-02-02')
 ON CONFLICT (email) DO NOTHING;
 
 INSERT INTO wishlists (user_id, item_name)

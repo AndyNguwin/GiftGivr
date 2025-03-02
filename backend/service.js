@@ -7,11 +7,11 @@ const pool = new Pool({
   });
 
 // Function to add a user
-const addUser = async (firstName, lastName, email, password, birthday) => {
+const addUser = async (firstName, lastName, username, email, password, birthday) => {
   try {
     const query = `
-      INSERT INTO users (first_name, last_name, email, password, birthday)
-      VALUES ($1, $2, $3, $4, $5)
+      INSERT INTO users (first_name, last_name, username, email, password, birthday)
+      VALUES ($1, $2, $3, $4, $5, $6)
       RETURNING *;
     `;
 
