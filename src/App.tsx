@@ -13,6 +13,10 @@ import CreateWishList from './pages/CreateWishList/CreateWishList';
 import Interests from './pages/Interests/Interests';
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [message, setMessage] = useState("Loading...");
+
+  // Don't wrap BrowserRouter inside another Router here.
   return (
     <>
     <Navbar />

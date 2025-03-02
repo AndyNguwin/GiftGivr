@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "concurrently \"vite\" \"npx nodemon ./backend/server.js\"",
+    "start": "concurrently \"vite\" \"node ./backend/server.js\"",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
@@ -16,7 +16,6 @@
     "@mui/icons-material": "^6.4.6",
     "@mui/material": "^6.4.6",
     "axios": "^1.8.1",
-    "dotenv": "^16.4.7",
     "pg": "^8.13.3",
     "pg-hstore": "^2.3.4",
     "react": "^19.0.0",
