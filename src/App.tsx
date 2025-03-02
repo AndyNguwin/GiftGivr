@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 
 import Navbar from './components/Navbar';
+import LogIn from './pages/LogIn';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/LogIn" element={<LogIn />} />
       </Routes>
     </BrowserRouter></>
   );

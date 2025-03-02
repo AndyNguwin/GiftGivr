@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
         <li>
         <Button 
             component="a" 
-            href="/login" 
+            href="/LogIn" 
             variant="contained" 
             sx={{ backgroundColor: 'purple', '&:hover': { backgroundColor: 'darkpurple' } }} // Custom styles
             className="login-button"
