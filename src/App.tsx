@@ -3,7 +3,8 @@ import './App.css';
 import axios from 'axios';
 import { Routes, Route, BrowserRouter } from 'react-router-dom'; // Router import
 import Home from './pages/Home';
-import AccountCreation from './pages/AccountCreation';
+
+import CreateAccount from './pages/CreateAcc/AccountCreation';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,7 +15,7 @@ function App() {
     <BrowserRouter> {/* This should be the only Router wrapping your app */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/CreateAccount" element={<AccountCreation />} />
+        <Route path="/CreateAccount" element={<CreateAccount />} />
       </Routes>
     </BrowserRouter>
   );

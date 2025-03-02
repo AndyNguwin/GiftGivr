@@ -1,0 +1,61 @@
+/* CreateAccount.css */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  input {
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .message {
+    margin-top: 50px;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  .success {
+    color: green;
+  }
+
+  .cornerH {
+    position: absolute; /* Position it relative to the page */
+    top: 2px; /* Distance from the top */
+    left: 15px; /* Distance from the right */
+    font-size: 8px; /* Adjust font size */
+    font-weight: bold; /* Make it bold */
+    color: #333; /* Text color */
+  }
+
+  .square {
+    position: absolute;
+    top: 5%;
+    left: 35%;
+    width: 600px; /* Set width of the square */
+    height: 500px; /* Set height of the square */
+    background-color: rgba(0, 0, 255, 0.171); /* Set background color */
+    border-radius: 20px;
+    z-index: -10;
+  }
