@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
-const { addUser } = require('./service');
+const { addUser, userLogin } = require('./service');
 
 const app = express();
 
@@ -58,6 +58,27 @@ app.post("/api/newaccount", async (req, res) => {
         res.status(201).json(newUser);
     } catch (error) {
         res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
+// Log in
+app.post("/api/login", async (req, res) =>{
+    try {
+        console.log(req.body);
+        const {username, password} = req.body;
+
+        const usernameCheckQuery = 'SELECT id FROM users WHERE username = $1';
+        const usernameCheckResult = await pool.query(usernameCheckQuery, [username]);
+
+        if (usernameCheckResult.rows.length == 0) {
+            // If user doesn't exists, send a response indicating the username doesn't exist
+            return res.status(400).json({ message: 'Username doesn\'t exist' });
+        }
+
+        const user_id = await userLogin(username, password);
+        res.status(201).json(user_id);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
 });
 
