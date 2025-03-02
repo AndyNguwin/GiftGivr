@@ -59,7 +59,7 @@ function Interests() {
                         onChange={(e) => setUserInput(e.target.value)} 
                         onKeyDown={handleKeyDown}>
                     </TextField>
-                    <Button onClick={handleUserInput} style={{ marginLeft: '10px' }}>
+                    <Button onClick={handleUserInput} style={{ marginLeft: '10px' }} className='text'>
                         Add
                     </Button>
                 </div>

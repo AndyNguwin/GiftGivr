@@ -3,14 +3,16 @@
   justify-content: space-between; 
   align-items: flex-start; 
   padding: 20px;
-  width: 100%; 
+  width: 100vw; 
 }
 
 .home-content {
-  width: 50%; 
+  max-width: 50%; 
   display: flex;
   flex-direction: column; 
   align-items: center; 
+  position: fixed;
+  left: 0;
   padding: 20px;
 }
 
@@ -27,6 +29,9 @@
 }
 
 .home-img {
-  width: 50%; 
+  width: 45vw;
+  height: auto; 
   object-fit: cover; 
+  position: fixed;
+  right: 0;
 }
