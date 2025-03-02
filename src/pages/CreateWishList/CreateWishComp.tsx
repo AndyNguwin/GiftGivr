@@ -61,10 +61,13 @@ function WishList(){
                     onClick={addWish}>
                     Add
                 </button>
+
                 <a href="https://chatgpt.com/">
-                <button className="hover-button">
-                    Get AI Help
-                    <span className="popup">Get AI reccommendations!</span>
+                <button
+                    className="hover-button"
+                    onClick={addWish}>
+                    AI Help
+                    <div className="hover-popup">Get AI Help!</div>
                 </button>
                 </a>
             </div>

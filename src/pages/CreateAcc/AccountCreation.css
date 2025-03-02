@@ -54,12 +54,12 @@
   outline: none;
   color: #797979;
   font-size: 19px;
+  text-align: left; /* Ensures placeholder starts from the left */
+  padding-left: 15px; /* Moves it slightly */
+  
 }
 
-input::placeholder {
-  text-align: left; /* Ensures placeholder starts from the left */
-  padding-left: 10px; /* Moves it slightly */
-}
+
 
 .submit-container{
   display: flex;
