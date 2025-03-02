@@ -47,6 +47,15 @@
     ```sh
     npm run start
     ```
+2. Sample users to login with
+    ```
+    Username: jane.doe
+    Password: password123
+    ```
+    ```
+    Username: john.doe
+    Password: password123
+    ```
 
     
 
