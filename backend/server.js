@@ -39,13 +39,22 @@ app.get("/api", (req, res) => {
 app.post("/api/newaccount", async (req, res) => {
     try {
         console.log(req.body);
-        const {firstName, lastName, email, password, birthday} = req.body;
+        const {firstName, lastName, username, email, password, birthday} = req.body;
 
-        if (!firstName || !lastName || !email || !password || !birthday) {
+        if (!firstName || !lastName || !username || !email || !password || !birthday) {
             return res.status(400).json({ error: "All fields are required" });
         }
 
-        const newUser = await addUser(firstName, lastName, email, password, birthday);
+        // Check if the email already exists
+        const emailCheckQuery = 'SELECT id FROM users WHERE email = $1';
+        const emailCheckResult = await pool.query(emailCheckQuery, [email]);
+    
+        if (emailCheckResult.rows.length > 0) {
+        // If email exists, send a response indicating the email is already taken
+        return res.status(400).json({ message: 'Email is already in use' });
+        }
+
+        const newUser = await addUser(firstName, lastName, username, email, password, birthday);
         res.status(201).json(newUser);
     } catch (error) {
         res.status(500).json({ error: "Internal Server Error" });

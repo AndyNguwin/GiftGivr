@@ -6,7 +6,6 @@ npm install
 npm run dev
 ```
 
-<<<<<<< HEAD
 
 # Setting up the Backend
 
@@ -16,6 +15,3 @@ npm run dev
 
 ## Create and Populate Database
 
-=======
-this is my branch
->>>>>>> origin

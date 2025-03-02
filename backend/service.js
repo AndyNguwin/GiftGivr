@@ -12,13 +12,17 @@ const addUser = async (firstName, lastName, username, email, password, birthday)
     const query = `
       INSERT INTO users (first_name, last_name, username, email, password, birthday)
       VALUES ($1, $2, $3, $4, $5, $6)
-      RETURNING *;
+      RETURNING id;
     `;
 
-    const values = [firstName, lastName, email, password, birthday];
+    const values = [firstName, lastName, username, email, password, birthday];
     const result = await pool.query(query, values);
-    
-    return result.rows[0]; // Return the newly created user
+    // if (result.length > 0){
+    //     return true;
+    // } else {
+    //     return false;
+    // } 
+    return result.rows[0].id; // Return the newly created user id
   } catch (error) {
     console.error("Error adding user:", error);
     throw error;
