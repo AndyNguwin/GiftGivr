@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'; // Router impor
 import Home from './pages/Home';
 
 import CreateAccount from './pages/CreateAcc/AccountCreation';
+import CreateWishList from './pages/CreateWishList/CreateWishList';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/CreateAccount" element={<CreateAccount />} />
+        <Route path="/CreateWishlist" element={<CreateWishList />} />
       </Routes>
     </BrowserRouter>
   );
