@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
-const { addUser, userLogin } = require('./service');
+const { addUser, userLogin, getWishlist, addWish } = require('./service');
 
 const app = express();
 
@@ -81,6 +81,37 @@ app.post("/api/login", async (req, res) =>{
         res.status(500).json({ error: error.message });
     }
 });
+
+app.get("/api/wishlist", async (req, res) => {
+    try {
+        const user_id = req.query.user_id;
+        // console.log(user_id)
+
+        // Check if user_id exists
+        if (!user_id) {
+            return res.status(400).json({ error: "user_id is required" });
+        }
+        const wishlist = await getWishlist(user_id);
+        console.log(wishlist);
+        res.status(200).json(wishlist)
+        // console.log(res);
+    } catch (error) {
+        console.error("Error fetching wishlist:", error);
+        res.status(500).json({ error: "An error occurred while fetching the wishlist" });
+    }
+})
+
+app.post("/api/addWish", async (req, res) => {
+    try {
+        console.log(req.body);
+        const {user_id, item_name} = req.body;
+        const result = await addWish(user_id, item_name);
+        console.log("Result:", result);
+        res.status(201).json({message: "success add"});
+    }catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
 
 // Start the server
 const PORT = process.env.PORT || 5000;

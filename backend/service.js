@@ -45,4 +45,35 @@ const userLogin = async (username, password) => {
     }
 }
 
-module.exports = { addUser, userLogin };
+const addWish = async (userId, wishItem) => {
+    try {
+        const query = `
+            INSERT INTO wishlists (user_id, item_name)
+            VALUES ($1, $2);
+        `;
+        const values = [userId, wishItem];
+        await pool.query(query, values);
+        return { success: true, message: "Wish item added successfully" };
+    } catch (error) {
+        console.error('Error adding wish:', error);
+        return { error: "An error occurred adding wish" };
+    }
+}
+
+const getWishlist = async (userId) => {
+    try {
+        const query = `
+            SELECT item_name FROM wishlists WHERE user_id = $1;
+        `;
+        const values = [userId];
+        const result = await pool.query(query, values);
+        // console.log(result.rows);
+        // return result.rows;
+        return result.rows.map(row => row.item_name);
+    } catch (error) {
+        console.error('Error getting wishes:', error);
+        return { error: "An error occurred getting wishes" };
+    }
+}
+
+module.exports = { addUser, userLogin, addWish, getWishlist };

@@ -5,16 +5,16 @@ import { Button } from '@mui/material';import { useNavigate } from 'react-router
 
 const Home: React.FC = () => {
     // const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    useEffect(() => {
-        // Check login status on component mount
-        const loginStatus = localStorage.getItem('isLoggedIn');
-        console.log(loginStatus);
-        if (loginStatus != 'true') {
-          navigate('/LogIn');  // Redirect to login if not logged in
-        }
-      }, [navigate]);
+    // useEffect(() => {
+    //     // Check login status on component mount
+    //     const loginStatus = localStorage.getItem('isLoggedIn');
+    //     console.log(loginStatus);
+    //     if (loginStatus != 'true') {
+    //       navigate('/LogIn');  // Redirect to login if not logged in
+    //     }
+    //   }, [navigate]);
       
   return (
     <div className="home-container">

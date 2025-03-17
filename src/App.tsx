@@ -15,8 +15,8 @@ import Interests from './pages/Interests/Interests';
 function App() {
   return (
     <>
-    <Navbar />
     <BrowserRouter> {/* This should be the only Router wrapping your app */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Interests" element={<Interests />} />

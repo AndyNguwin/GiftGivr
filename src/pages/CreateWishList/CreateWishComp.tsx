@@ -1,8 +1,21 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './CreateWishList.css'
+// import { useNavigate } from "react-router-dom";
+import axios from "axios";
 function WishList(){
-
+    const user_id = localStorage.getItem('user_id');
     const [wishes, setWishes] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/api/wishlist", {
+            params: {user_id : user_id}
+        }).then(response => {
+            console.log(response.data);
+            setWishes(response.data);
+        }).catch(error => {
+            console.error("Error fetching wishlist:", error);
+        });
+    }, [user_id]);
 
     const [newWish, setNewWish] = useState("");
     const [message, setMessage] = useState('');
@@ -18,6 +31,16 @@ function WishList(){
         if (newWish.trim() !== "")
         {
             setWishes(() => [...wishes, newWish]);
+            console.log(wishes);
+            console.log(newWish);
+            axios.post("http://localhost:5000/api/addWish", {
+                user_id: user_id,
+                item_name: newWish
+            }).then(response => {
+                console.log(response.data);
+            }).catch(error => {
+                console.error("Error adding to wishlist:", error);
+            });
             setNewWish("");
         }
 
