@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
-const { addUser, userLogin, getWishlist, addWish } = require('./service');
+const { addUser, userLogin, getWishlist, addWish, getFriends } = require('./service');
 
 const app = express();
 
@@ -108,8 +108,25 @@ app.post("/api/addWish", async (req, res) => {
         const result = await addWish(user_id, item_name);
         console.log("Result:", result);
         res.status(201).json({message: "success add"});
-    }catch (error) {
+    } catch (error) {
         res.status(500).json({ error: error.message });
+    }
+})
+
+app.get("/api/friends", async (req, res) => {
+    try{
+        const user_id = req.query.user_id;
+
+        // Check if user_id exists
+        if (!user_id) {
+            return res.status(400).json({ error: "user_id is required" });
+        }
+        const friends = await getFriends(user_id);
+        console.log("Result:", result);
+        res.status(200).json(friends)
+    } catch (error) {
+        console.error("Error fetching friends list:", error);
+        res.status(500).json({ error: "An error occured while fetching friends list" });
     }
 })
 

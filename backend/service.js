@@ -76,4 +76,21 @@ const getWishlist = async (userId) => {
     }
 }
 
+const getFriends = async (userId) => {
+    try {
+        const query = `
+            SELECT u.first_name, u.last_name
+            FROM friends f
+            JOIN users u ON u.id = f.friend_id
+            WHERE f.user_id = $1;
+        `
+        const values = [userId];
+        const result = await pool.query(query, values);
+        return result.rows.map(row => `${row.first_name} ${row.last_name}`);
+    } catch (error) {
+        console.error('Error getting friends:', error);
+        return { error: "An error occurred getting friends" };
+    }
+}
+
 module.exports = { addUser, userLogin, addWish, getWishlist };
