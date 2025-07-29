@@ -30,6 +30,7 @@
     ```
 3. Create initial database (use password you input during PostgreSQL download)
     ```sh
+    cd ..
     psql -U postgres -f create-database.sql
     ```
     - Simple database with a test user.
