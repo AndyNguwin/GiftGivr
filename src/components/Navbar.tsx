@@ -24,6 +24,7 @@ const Navbar: React.FC = () => {
     <nav className="navbar">
       <a href="/" id="site-title">GiftGivr</a>
       <ul>
+        <a href="/CreateWishlist" className="text">Wishlist</a>
         <a href="/about" className="text">About</a>
         <ul>
           <a 
