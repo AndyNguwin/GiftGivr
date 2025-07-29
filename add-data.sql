@@ -26,5 +26,7 @@ VALUES
 ON CONFLICT (user_id, item_name) DO NOTHING;
 
 INSERT INTO friends (user_id, friend_id) 
-VALUES (LEAST(1, 2), GREATEST(1, 2))
+VALUES
+(1, 2),
+(2, 1)
 ON CONFLICT (user_id, friend_id) DO NOTHING;

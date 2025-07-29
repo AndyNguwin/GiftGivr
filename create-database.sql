@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS friends (
     -- created_at TIMESTAMP DEFAULT NOW(), -- Timestamp for when the friendship was made
     PRIMARY KEY (user_id, friend_id), -- Ensure unique friendship
     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    CONSTRAINT fk_friend FOREIGN KEY (friend_id) REFERENCES users(id) ON DELETE CASCADE,
-    CONSTRAINT unique_friendship CHECK (user_id < friend_id) -- Ensures consistent ordering
+    CONSTRAINT fk_friend FOREIGN KEY (friend_id) REFERENCES users(id) ON DELETE CASCADE
+    -- CONSTRAINT unique_friendship CHECK (user_id < friend_id) -- Ensures consistent ordering
 
     -- Inserting command to maintain consistent ordering to not need to hold duplicate
     -- INSERT INTO friends (user_id, friend_id) 
